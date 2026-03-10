@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: hello-stacklayer
+  namespace: hello-stacklayer
+  annotations:
+    cert-manager.io/cluster-issuer: selfsigned
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - hello.stacklayer.local
+      secretName: hello-stacklayer-tls
+  rules:
+    - host: hello.stacklayer.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: hello-stacklayer
+                port:
+                  number: 80

@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-stacklayer
+  namespace: hello-stacklayer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-stacklayer
+  template:
+    metadata:
+      labels:
+        app: hello-stacklayer
+    spec:
+      containers:
+        - name: hello-stacklayer
+          image: ghcr.io/<your-github-username>/hello-stacklayer:latest
+          ports:
+            - containerPort: 8000
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 5
+            periodSeconds: 10
