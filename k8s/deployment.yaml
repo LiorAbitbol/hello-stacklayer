@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: hello-stacklayer
-          image: ghcr.io/<your-github-username>/hello-stacklayer:latest
+          image: ghcr.io/liorabitbol/hello-stacklayer:latest
           ports:
             - containerPort: 8000
           readinessProbe:
