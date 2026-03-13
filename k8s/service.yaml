@@ -3,9 +3,12 @@ kind: Service
 metadata:
   name: hello-stacklayer
   namespace: hello-stacklayer
+  labels:
+    app: hello-stacklayer
 spec:
   selector:
     app: hello-stacklayer
   ports:
-    - port: 80
+    - name: http
+      port: 80
       targetPort: 8000
