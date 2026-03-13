@@ -16,6 +16,7 @@ spec:
       containers:
         - name: hello-stacklayer
           image: ghcr.io/liorabitbol/hello-stacklayer:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 8000
           readinessProbe:
