@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: hello-stacklayer
+  description: Sample FastAPI app deployed on StackLayer
+  annotations:
+    github.com/project-slug: liorabitbol/hello-stacklayer
+    backstage.io/kubernetes-id: hello-stacklayer
+spec:
+  type: service
+  lifecycle: experimental
+  owner: user:guest
